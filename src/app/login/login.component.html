@@ -1,0 +1,30 @@
+<div class="login-div" style="height: 100vh;">
+    <div class="container mt-5">
+        <form #loginForm="ngForm" class="mt-5" (ngSubmit)="login()">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="mb-3 w-25">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
+                    <input type="text" class="form-control" name="email" [(ngModel)]="email"
+                     id="exampleFormControlInput1" placeholder="Enter your email" required email #useremailinput="ngModel">
+                  </div>
+
+                  <!-- invalid email -->
+                  <div class="mb-3 text-danger fw-bolder" *ngIf="useremailinput.invalid && useremailinput.touched">
+                    Invalid email
+                  </div>
+
+                  <div class="mb-3 w-25">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Password</label>
+                    <input type="password" name="password" [(ngModel)]="password" required minlength="5" #userpassword="ngModel" pattern="[a-zA-Z0-9]*" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password">
+                  </div>  
+
+                  <!-- invalid password -->
+                  <div class="mb-3 text-danger fw-bolder" *ngIf="userpassword.invalid && userpassword.touched">
+                    Invalid password
+                  </div>
+                  
+                  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-success w-25">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

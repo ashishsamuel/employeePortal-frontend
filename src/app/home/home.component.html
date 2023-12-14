@@ -1,0 +1,41 @@
+<div class="d-flex">
+    <div *ngIf="showSidebar" style="height: 93vh;width: 100px;" class="d-flex flex-column sidebar bg-info text-light p-3">
+        <a class="sidebar-link" routerLink="/dashboard">Home</a>
+        <a class="sidebar-link" routerLink="/users">Users</a>
+        <button class="btn btn-info" (click)="logOut()">Logout</button>
+    </div>
+    <div class="dashboard p-3 w-100">
+        <div class="row">
+            <div class="col-lg-8">
+                <div style="height: 180px;background-image: url('https://www.hdwallpapers.in/download/light_blue_background_hd_abstract-HD.jpg');background-size: cover;"
+                 class="admin-banner rounded d-flex align-items-center shadow">
+                    <h1 class="ms-5 fw-bolder d-flex align-items-center text-light fs-3">
+                        <i (click)="menuBtnClick()" style="height: 25px;cursor: pointer;" class="fa-solid fa-bars me-3"></i>
+                        <span style="height: 40px;">Welcome {{admin_name}}</span>
+                    </h1>
+                </div>
+                <div class="row m-3">
+                    <div class="col-lg-5 border rounded shadow">
+                        <mat-card class="demo-inline-calendar-card">
+                            <mat-calendar [(selected)]="selected"></mat-calendar>
+                          </mat-card>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-6 border rounded shadow">
+                        <app-chart></app-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div style="height: 400px;"
+                 class="edit-admin border rounded shadow p-2">
+                    edit admin
+                </div>
+                <div style="height: 150px;background-image: url('https://www.hdwallpapers.in/download/light_blue_background_hd_abstract-HD.jpg');"
+                 class="mt-2 border rounded shadow p-2 bg-dark text-light d-flex align-items-center justify-content-center">
+                    <h2 class="fw-bolder"><i class="fa-solid fa-users me-2"></i>Employess : 12</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
