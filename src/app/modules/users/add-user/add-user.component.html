@@ -1,7 +1,11 @@
 <div class="d-flex border border-light">
-  <div style="height: 89vh; width: 150px;" class="sidebar bg-primary text-light p-3 fs-5 d-flex flex-column">
-    <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;"routerLink="/home">Home</a>
-    <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;"routerLink="/users">Users</a>
+  <div style="height: 94vh; width: 150px;" class="sidebar bg-info text-light p-3 fs-5 d-flex flex-column justify-content-between">
+    <div class="d-flex flex-column align-items-center">
+      <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;"routerLink="/dashboard">Home</a>
+      <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;"routerLink="/users">Users</a>
+    </div>
+    <button style="font-size: 18px;" class="btn fw-bold" (click)="logOut()">Logout</button>
+
   </div>
   <div class="dashboard d-flex align-items-center justify-content-center flex-column p-3 w-100">
    <h1>Add New User Details</h1>

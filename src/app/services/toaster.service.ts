@@ -12,9 +12,9 @@ export class ToasterService {
     this.toastr.success('Success',msg);
   }
   showError(msg:string) {
-    this.toastr.success('Error',msg);
+    this.toastr.error('Error',msg);
   }
   showWarning(msg:string) {
-    this.toastr.success('Warning', msg);
+    this.toastr.warning('Warning', msg);
   }
 }

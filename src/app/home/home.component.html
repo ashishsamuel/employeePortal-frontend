@@ -1,9 +1,20 @@
 <div class="d-flex">
-    <div *ngIf="showSidebar" style="height: 93vh;width: 100px;" class="d-flex flex-column sidebar bg-info text-light p-3">
-        <a class="sidebar-link" routerLink="/dashboard">Home</a>
-        <a class="sidebar-link" routerLink="/users">Users</a>
-        <button class="btn btn-info" (click)="logOut()">Logout</button>
+    <div *ngIf="showSidebar" style="height: 94vh; width: 150px;" class="sidebar bg-info text-light p-3 fs-5 d-flex flex-column justify-content-between">
+        <div class="d-flex flex-column align-items-center">
+            <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;">Home</a>
+            <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;" routerLink="/users">Users</a>
+          </div>
+          <button style="font-size: 18px;" class="btn fw-bold" (click)="logOut()">Logout</button>
     </div>
+
+    <!-- <div style="height: 94vh; width: 150px;" class="sidebar bg-info text-light p-3 fs-5 d-flex flex-column justify-content-between">
+        <div class="d-flex flex-column align-items-center">
+          <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;" routerLink="/home">Home</a>
+          <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;" routerLink="/users">Users</a>
+        </div>
+        <button style="font-size: 18px;" class="btn fw-bold" (click)="logOut()">Logout</button>
+    
+      </div> -->
     <div class="dashboard p-3 w-100">
         <div class="row">
             <div class="col-lg-8">
@@ -29,11 +40,11 @@
             <div class="col-lg-4">
                 <div style="height: 400px;"
                  class="edit-admin border rounded shadow p-2">
-                    edit admin
+                 <app-update-admin (onAdminChange)="getUpdatedAdmin($event)"></app-update-admin>
                 </div>
                 <div style="height: 150px;background-image: url('https://www.hdwallpapers.in/download/light_blue_background_hd_abstract-HD.jpg');"
                  class="mt-2 border rounded shadow p-2 bg-dark text-light d-flex align-items-center justify-content-center">
-                    <h2 class="fw-bolder"><i class="fa-solid fa-users me-2"></i>Employess : 12</h2>
+                    <h2 class="fw-bolder"><i class="fa-solid fa-users me-2"></i>Employess : {{employeeCount}}</h2>
                 </div>
             </div>
         </div>

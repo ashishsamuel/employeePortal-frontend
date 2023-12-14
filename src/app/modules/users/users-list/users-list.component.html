@@ -1,26 +1,31 @@
 <div class="d-flex">
-    <div style="height: 89vh;width: 100px;" class="d-flex flex-column sidebar bg-info text-light p-3">
-        <a class="sidebar-link" routerLink="/dashboard">Home</a>
-        <a class="sidebar-link" routerLink="/users">Users</a>
-        <a></a>
+    <div style="height: 94vh; width: 150px;" class="sidebar bg-info text-light p-3 fs-5 d-flex flex-column justify-content-between">
+        <div class="d-flex flex-column align-items-center">
+            <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;" routerLink="/dashboard">Home</a>
+            <a style="text-decoration: none;margin-top: 10px;font-weight: bold;color: white;font-size: 18px;">Users</a>
+          </div>
+          <button style="font-size: 18px;" class="btn fw-bold" (click)="logOut()">Logout</button>
     </div>
     <div class="dashboard p-3 w-100">
         <div class="d-flex justify-content-between">
             <h1>Users List</h1>
-            <button class="btn btn-info">Add</button>
+            <a routerLink="add"><button class="btn btn-info">Add</button></a>
         </div>
 
-        <div class="d-flex mt-3 align-items-center">
-            <span>Search:</span>
-            <input type="text" placeholder="search by username" class="form-control w-50 ms-2" [(ngModel)]="searchKey"/>
-            <div class="dropdown">
-                <button class="btn btn-secondary ms-2" mat-button [matMenuTriggerFor]="menu">Sort</button>
-                <mat-menu #menu="matMenu">
-                    <button (click)="sortById()" mat-menu-item>By UserId</button>
-                    <button (click)="sortByName()" mat-menu-item>By UserName</button>
-                </mat-menu>
+        <div class="d-flex mt-3 align-items-center justify-content-between">
+            <div class="d-flex justify-content-evenly align-items-center" style="width: 480px;">
+                <span>Search:</span>
+                <input type="text" placeholder="search by username" class="form-control w-50 ms-2" [(ngModel)]="searchKey"/>
+                
+                    <div class="dropdown">
+                        <button class="btn btn-secondary ms-2" mat-button [matMenuTriggerFor]="menu">Sort</button>
+                        <mat-menu #menu="matMenu">
+                            <button (click)="sortById()" mat-menu-item>By UserId</button>
+                            <button (click)="sortByName()" mat-menu-item>By UserName</button>
+                        </mat-menu>
+                    </div>
             </div>
-            <button class="btn btn-success" (click)="generatePDF()">Export</button>
+                <button class="btn btn-success" (click)="generatePDF()">Export</button>
         </div>
         <table class="table shadow mt-5">
             <thead>

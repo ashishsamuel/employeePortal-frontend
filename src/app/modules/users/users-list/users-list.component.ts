@@ -3,6 +3,7 @@ import { UserApiService } from '../user-api.service';
 import { UserModel } from '../users.model';
 import jspdf from 'jspdf'
 import autoTable from 'jspdf-autotable'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-list',
@@ -14,7 +15,7 @@ export class UsersListComponent implements OnInit{
   p:number=1;
   allUsers:UserModel[]=[]
   searchKey:string = ""
-  constructor(private api:UserApiService){}
+  constructor(private api:UserApiService,private router:Router){}
 
   ngOnInit(): void {
     this.getallUsers()
@@ -69,5 +70,11 @@ export class UsersListComponent implements OnInit{
     autoTable(pdf,{head,body})
     pdf.output('dataurlnewwindow')
     pdf.save('alluserslist.pdf')
+  }
+
+  logOut(){
+    localStorage.removeItem("admin_name")
+    localStorage.removeItem("admin_pswd")
+    this.router.navigateByUrl("")
   }
 }

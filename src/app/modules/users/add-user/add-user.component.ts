@@ -34,4 +34,10 @@ export class AddUserComponent {
   cancel(){
     this.user = {}
   }
+
+  logOut(){
+    localStorage.removeItem("admin_name")
+    localStorage.removeItem("admin_pswd")
+    this.router.navigateByUrl("")
+  }
 }
